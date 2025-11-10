@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS board;
+USE board;
+
+CREATE TABLE IF NOT EXISTS board (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(50),
+    content VARCHAR(255)
+);
