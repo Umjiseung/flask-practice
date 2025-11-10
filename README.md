@@ -12,17 +12,30 @@ docker compose build
 docker compose up -d
 ```
 
-3. 포그라운드 모드로 실행
+3. mysql에 board 테이블 생성
+```bash
+CREATE DATABASE IF NOT EXISTS board;
+USE board;
+
+CREATE TABLE IF NOT EXISTS board (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(50),
+    content VARCHAR(255)
+);
+
+```
+
+4. 포그라운드 모드로 실행
 ```bash
 docker compose up
 ```
 
-4. 실행 중인지 컨테이너 확인
+5. 실행 중인지 컨테이너 확인
 ```bash
 docker ps
 ```
 
-5. 컨테이너 중지
+6. 컨테이너 중지
 ```bash
 docker compose down
 ```
