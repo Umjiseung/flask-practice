@@ -68,7 +68,6 @@ def init_routes(api):
             return board, 201
 
     @api.route('/boards/<int:pk>')
-    @api.response(404, 'Board Not Found')
     class BoardDetail(Resource):
     
         def get(self, pk):
