@@ -7,7 +7,6 @@ from datetime import datetime
 def init_routes(api):
     # Swagger 모델 정의
     board_write_model = api.model('BoardWrite', {
-        'id': fields.Integer(readonly=True, description='게시글 ID'),
         'title': fields.String(required=True, description='제목'),
         'content': fields.String(required=True, description='내용'),
     })
