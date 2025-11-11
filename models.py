@@ -7,7 +7,6 @@ class Board(db.Model):
     title = db.Column(db.String(20), nullable=False)
     content = db.Column(db.String(100), nullable=False)
     likes = db.Column(db.Integer, default=0, nullable=False)
-    created_at=db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return self.title

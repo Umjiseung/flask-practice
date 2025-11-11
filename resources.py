@@ -92,6 +92,7 @@ def init_routes(api):
             db.session.commit()
             return board
 
+        @api.marshal_with(board_read_model, 204)
         def delete(self, pk):
             """게시글 삭제"""
             board = BoardModel.query.get(pk)
