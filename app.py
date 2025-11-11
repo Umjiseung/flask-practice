@@ -10,8 +10,8 @@ app = Flask(__name__)
 
 load_dotenv()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@"
-    f"{os.getenv('DB_DOCKER_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}")
+app.config['SQLALCHEMY_DATABASE_URI'] = (f"mysql+pymysql://{os.getenv('DB_USER', 'root')}:{os.getenv('DB_PASSWORD','1234')}@"
+    f"{os.getenv('DB_DOCKER_HOST','mysql')}:{os.getenv('DB_PORT','3306')}/{os.getenv('DB_NAME','board')}")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
