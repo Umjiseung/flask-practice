@@ -2,6 +2,8 @@
 
 ## Docker Compose 빌드
 
+// env는 .env example 참고
+
 1. 도커 이미지를 새로 빌드하려면 다음 명령어를 사용합니다.
 ```bash 
 docker compose build

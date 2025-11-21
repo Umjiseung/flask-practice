@@ -1,0 +1,25 @@
+name: Pull Request Webhook Notification
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+job:
+  notify-webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send PR notification to webhook
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "repository_owner": "${{ github.repository_owner }}"
+              "repository_name": "${{ github.event.repository_name }}"
+              "pull_request_number": "${{ github.event.pull_request_number }}"
+              "pull_request_url": "${{ github.event.pull_request.html_url }}"
+              "action": "${{ github.event.action }}"
+              "pull_request_title": "${{ github.event.pull_request.pull_request.title }}"
+              "pull_request_author": "${{ github.event.pull_request.user.login }}"
+            }' \
+            "https://uhs071005.app.n8n.cloud/webhook-test/83cbfa83-9c04-4ce8-8d35-31ef12341369/webhook"
